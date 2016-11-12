@@ -92,14 +92,19 @@ function getWikiLinks(searchTerm, callback) {
             if ((request.status >= 200 && request.status < 300) || request.status == 304) {
                 // Success!
                 var data = JSON.parse(request.responseText);
-                var wikiPages = data.query.pages;
+                if (data.query) {
+                    var wikiPages = data.query.pages;
 
-                for (var page in wikiPages) {
-                    if (wikiPages.hasOwnProperty(page)) {
-                        wikiInfo.push({url: wikiPages[page].fullurl, title: wikiPages[page].title, extract: wikiPages[page].extract});
+                    for (var page in wikiPages) {
+                        if (wikiPages.hasOwnProperty(page)) {
+                            wikiInfo.push({url: wikiPages[page].fullurl, title: wikiPages[page].title, extract: wikiPages[page].extract});
+                        }
                     }
+                    callback(wikiInfo);
                 }
-                callback(wikiInfo);
+                else {
+                    removeWikiList();
+                }
             }
         }
     };
@@ -107,25 +112,32 @@ function getWikiLinks(searchTerm, callback) {
     request.send();
 }
 
-
-function writeData(myData) {
-    for (var i = 0; i < myData.length; i++) {
-        console.log("url is " + myData[i].url + ". title is " + myData[i].title + ". extract is " + myData[i].extract + ".");
-    }
-
+function removeWikiList() {
     var wikiLinks = document.querySelectorAll('.article');
     if (wikiLinks.length > 0) {
         Array.prototype.forEach.call(wikiLinks, function(el, i) {
             el.parentNode.removeChild(el);
         });
     }
+}
 
-    var container = document.querySelector(".container");
+function writeData(myData) {
+    for (var i = 0; i < myData.length; i++) {
+        console.log("url is " + myData[i].url + ". title is " + myData[i].title + ". extract is " + myData[i].extract + ".");
+    }
 
-    var listArticlesTemplate = document.getElementById("displayWikis-template").innerHTML;
-    var compiled = Handlebars.compile(listArticlesTemplate);
+    var wikiList = document.querySelector(".wiki-list");
 
-    container.insertAdjacentHTML('beforeend', compiled(myData));
+    $('.wiki-list').fadeOut("fast", function() {
+
+        //removeWikiList();
+        var listArticlesTemplate = document.getElementById("displayWikis-template").innerHTML;
+        var compiled = Handlebars.compile(listArticlesTemplate);
+
+        wikiList.innerHTML = compiled(myData);
+    });
+
+    $('.wiki-list').fadeIn("slow");
 }
 
 function callWikiAPI(searchTerm) {

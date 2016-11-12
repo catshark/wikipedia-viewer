@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../public/stylesheets/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../public/lib/bootstrap-3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/wikiviewer.css">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/wikiviewer.css">
 </head>
 <body>
 <div class="container">
@@ -26,12 +26,14 @@
             </form>
         </div>
     </div>
+    <div class="wiki-list">
+    </div>
 </div>
 </body>
-<script type="text/javascript" src="../public/javascript/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../javascript/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCSLVSfPAByYokt-9NkOBbLBTUUX_7_nM"></script>
-<script type="text/javascript" src="../public/javascript/handlebars.js"></script>
-<script type="text/javascript" src="../public/javascript/wikiviewer.js"></script>
+<script type="text/javascript" src="../javascript/handlebars.js"></script>
+<script type="text/javascript" src="../javascript/wikiviewer.js"></script>
 <script type="text/x-handlebars-template" id="displayWikis-template">
     {{#each this}}
     <div class="row article">
