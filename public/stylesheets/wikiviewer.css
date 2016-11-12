@@ -1,0 +1,252 @@
+html,body {height: 100%;}
+body {background-color: #092B40; background-position: center; background-size: cover; background-attachment: fixed; background-repeat: no-repeat;}
+
+p a, p a:link, p a:visited, p a:hover, p a:active {
+    color: White;
+    text-decoration: none;
+}
+
+.col-md-12 a, .col-md-12 a:link, .col-md-12 a:visited, .col-md-12 a:hover, .col-md-12 a:active {
+    color: Black;
+    text-decoration: none;
+}
+
+a h1 {
+    font-size: 18px;
+}
+
+a p {
+    font-size: 14px;
+}
+
+.absolute-center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.absolute-center.is-responsive {
+    width: 30%;
+    height: 50%;
+    padding: 40px;
+}
+
+.search-wrapper {
+    position: relative;
+    /* -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%);*/
+    /*top:50%;
+    left:50%;*/
+}
+.random-article {
+    position: relative;
+    left: 80px;
+}
+
+.search-wrapper.active {}
+
+.search-wrapper .input-holder {
+    overflow: hidden;
+    height: 60px;
+    background: #092B40;
+    border-radius:50px;
+    position: relative;
+    border: 0px solid #974BE0;
+    width:180px;
+    -webkit-transition: all 0.3s ease-in-out 0.5s;
+    -moz-transition: all 0.3s ease-in-out 0.5s;
+    transition: all 0.3s ease-in-out 0.5s;
+}
+.search-wrapper.active .input-holder {
+    border-radius: 50px;
+    width:350px;
+    border: 4px solid #974BE0;
+    background: #092B40;
+    -webkit-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570) 0.5s;
+    -moz-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570) 0.5s;
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570) 0.5s;
+}
+
+.search-wrapper .input-holder .search-input {
+    width:100%;
+    height: 50px;
+    padding:0px 70px 0 20px;
+    opacity: 0;
+    position: absolute;
+    top:0px;
+    left:0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border:none;
+    outline:none;
+    font-family:"Open Sans", Arial, Verdana;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    background-color:#092B40;
+    color: White;
+    /*-webkit-transform: translate(0, 60px);
+    -moz-transform: translate(0, 60px);
+    transform: translate(0, 60px);*/
+    -webkit-transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -moz-transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+
+    -webkit-transition-delay: 0.3s;
+    -moz-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+.search-wrapper.active .input-holder .search-input {
+    opacity: 1;
+    -webkit-transform: translate(0, 10px);
+    -moz-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+}
+
+.search-wrapper .input-holder .search-icon {
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:34px;
+    background: #092B40;
+    padding:0px;
+    outline:none;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    left: 60%;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out 0.5s;
+}
+.search-wrapper.active .input-holder .search-icon {
+    width: 50px;
+    height:50px;
+    border-radius: 34px;
+    opacity: 0;
+}
+.search-wrapper .input-holder .search-icon span {
+    width:100%;
+    height:100%;
+    display: inline-block;
+    vertical-align: middle;
+    position:relative;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+    -webkit-transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+    -moz-transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+    transition: all .4s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+
+}
+.search-wrapper.active .input-holder .search-icon span {
+    opacity: 0;
+    transition: opacity 0.1s ease 0.6s;
+}
+.search-wrapper .input-holder .search-icon span::before, .search-wrapper .input-holder .search-icon span::after {
+    position: absolute;
+    content:'';
+}
+.search-wrapper .input-holder .search-icon span::before {
+    width: 3px;
+    height: 20px;
+    top: 46px;
+    border-radius: 2px;
+    background: #974BE0;
+    transition: height 0.5s ease 0.8s;
+}
+.search-wrapper .input-holder .search-icon span.active::before {
+    height: 3px;
+    transition: height 0.5s ease;
+}
+.search-wrapper .input-holder .search-icon span::after {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border-radius: 38px;
+    border: 4px solid #974BE0;
+}
+
+.search-wrapper .close {
+    position: relative;
+    z-index:2;
+    bottom:45px;
+    right:45px;
+    width:40px;
+    height:40px;
+    cursor: pointer;
+    -webkit-transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -moz-transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+    display: block;
+}
+.search-wrapper .close::before, .search-wrapper .close::after {
+    position:absolute;
+    content:'';
+    border-radius: 2px;
+}
+.search-wrapper .close::before {
+    width: 3px;
+    height: 0px;
+    left: 40px;
+    bottom: -7px;
+    background: #974BE0;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    transform: rotate(135deg);
+    transition: all 0.5s ease;
+}
+.search-wrapper .close::after {
+    width: 3px;
+    height: 0px;
+    left: 40px;
+    top: -18px;
+    background: #974BE0;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    transform: rotate(225deg);
+    transition: all 0.5s ease;
+}
+.search-wrapper .close.active::before {
+    height: 30px;
+    left: 15px;
+    top: 10px;
+    transition: all 1s ease 1s;
+}
+.search-wrapper .close.active::after {
+    height: 30px;
+    left: 14px;
+    top: 10px;
+    transition: all 1s ease 1s;
+}
+.search-wrapper .result-container {
+    width: 100%;
+    /*position: absolute;
+    top:80px;
+    left:0px;*/
+    text-align: center;
+    font-family: "Open Sans", Arial, Verdana;
+    font-size: 14px;
+    display:none;
+    color:#B7B7B7;
+}
+.article {
+    background-color: #E7E7E8;
+    margin: 1em;
+    padding: 1em;
+}
+.hide {
+    display: none;
+}
+
+
+@media screen and (max-width: 560px) {
+    .search-wrapper.active .input-holder {width:200px;}
+}
