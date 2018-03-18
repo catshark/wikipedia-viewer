@@ -56,6 +56,7 @@ document.querySelector('.absolute-center').addEventListener('submit', function (
 
 });
 
+// todo: escapeURIFragment/sanitise input
 function getWikiLinks(searchTerm, callback) {
     var request = new XMLHttpRequest();
     requestUrl = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrsearch=' +
@@ -89,6 +90,7 @@ function getWikiLinks(searchTerm, callback) {
     request.send();
 }
 
+// pass in parent container and delete children, whatever they are.
 function removeWikiList() {
     var wikiLinks = document.querySelectorAll('.article');
     if (wikiLinks.length > 0) {
